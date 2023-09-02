@@ -51,6 +51,15 @@ const swiper = new Swiper(".swiper", {
 });
 
 swiper.on("reachEnd", function () {
-  // let button = document.getElementsByClassName("swiper-button-next");
-  // button.style.display = "none";
+  let buttonNext = document.getElementsByClassName("swiper-button-next");
+  buttonNext[0].style.display = "none";
+  let buttonPrev = document.getElementsByClassName("swiper-button-prev");
+  buttonPrev[0].style.display = "block";
+});
+
+swiper.on("reachBeginning", function () {
+  let buttonNext = document.getElementsByClassName("swiper-button-next");
+  buttonNext[0].style.display = "block";
+  let buttonPrev = document.getElementsByClassName("swiper-button-prev");
+  buttonPrev[0].style.display = "none";
 });
