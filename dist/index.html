@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+  </head>
+  <body class="w-fill">
+    <div
+      class="w-[100%] flex flex-col justify-center items-center overflow-hidden"
+    >
+      <header class="fixed top-0 z-30 w-screen">
+        <!-- ==============Navbar=============== -->
+        <nav
+          class="w-full h-[60px] md:h-[83px] flex items-center justify-between md:justify-around px-[30px] md:px-[20px] absolute z-10 bg-white"
+        >
+          <div class="flex md:w-[277px] w-[127px] md:h-[64px] h-[29px]">
+            <img
+              src="./img/navlogo.svg"
+              alt="logo"
+              class="w-[126px] md:w-[250px] h-[29px] md:h-[50px]"
+            />
+          </div>
+
+          <!-- =========Desktop menu start========== -->
+          <div
+            class="hidden md:flex items-center justify-center gap-[64px] w-[53%]"
+          >
+            <ul
+              class="list-none flex justify-between items-center w-[423px] h-[41px] gap-[22px]"
+            >
+              <li class="text-[16px] font-[400] cursor-pointer">Home</li>
+              <li class="text-[16px] font-[400] cursor-pointer">
+                Health Conditions
+              </li>
+              <li class="text-[20px] text-[#138ED1] font-[600] cursor-pointer">
+                Lab tests
+              </li>
+              <li class="text-[16px] font-[400] cursor-pointer">Medicines</li>
+            </ul>
+
+            <div class="flex gap-[17px]">
+              <button
+                class="w-[113px] h-[35px] rounded-[4px] bg-[#00486c] text-white text-[14px] font-[400]"
+              >
+                For patients
+              </button>
+              <button
+                class="w-[113px] h-[35px] rounded-[4px] bg-[#00486c] text-white text-[14px] font-[400]"
+              >
+                For hospitals
+              </button>
+            </div>
+          </div>
+          <button
+            class="bg-[#333] w-[115px] w-max-[23%] h-[35px] rounded-[4px] md:flex hidden gap-[7px] items-center justify-center"
+          >
+            <img
+              src="./img/playstore.svg"
+              alt="playstore"
+              class="w-[21px] h-[20px]"
+            />
+            <p
+              class="w-[61px] text-white text-[12px] font-body font-[500] mr-[1.12rem]"
+            >
+              Play store
+            </p>
+          </button>
+
+          <!-- =========Mobile menu start========== -->
+          <div id="mobile-menu" class="hidden">
+            <div
+              class="flex flex-col pt-2 fixed top-[60px] left-0 w-full h-[calc(100vh-60px)] text-[16px] font-[400] bg-white border-t text-black"
+            >
+              <ul>
+                <li class="py-3 border-b pl-[51px]">
+                  <span class="flex items-center gap-2">
+                    <img
+                      src="./img/home.svg"
+                      alt="home"
+                      class="w-[18px] h-[18px]"
+                    />
+                    <a>Home</a>
+                  </span>
+                </li>
+                <li class="py-3 border-b pl-[51px]">
+                  <span class="flex items-center gap-2">
+                    <img
+                      src="./img/labs.svg"
+                      alt="home"
+                      class="w-[18px] h-[18px]"
+                    />
+                    <a>Lab</a>
+                  </span>
+                </li>
+                <li class="py-3 border-b pl-[51px]">
+                  <span class="flex items-center gap-2">
+                    <img
+                      src="./img/abdm.svg"
+                      alt="home"
+                      class="w-[18px] h-[18px]"
+                    />
+                    <a>ABDM</a>
+                  </span>
+                </li>
+                <li
+                  class="py-3 border-b pl-[51px] pr-[51px] flex justify-between"
+                  onclick="dropdown()"
+                >
+                  <span class="flex items-center gap-2">
+                    <img
+                      src="./img/health-feed.svg"
+                      alt="home"
+                      class="w-[18px] h-[18px]"
+                    />
+                    <a>Health feed</a>
+                  </span>
+                  <img
+                    id="drop-down-arrow"
+                    src="./img/drop-arrow.svg"
+                    alt="drop down"
+                    class="mr-4"
+                  />
+                </li>
+
+                <ul id="sub-menu" class="hidden">
+                  <li class="bg-[#138ED1] text-white py-3 border-b pl-[80px]">
+                    <span class="flex items-center gap-2">
+                      <img src="./img/health-conditions.svg" alt="health" />
+                      <a>Health conditions</a>
+                    </span>
+                  </li>
+                  <li class="bg-[#138ED1] text-white py-3 border-b pl-[80px]">
+                    <span class="flex items-center gap-2">
+                      <img src="./img/pill.svg" alt="pill" />
+                      <a>Medicines</a>
+                    </span>
+                  </li>
+                </ul>
+                <li class="py-3 border-b pl-[51px]">
+                  <span class="flex items-center gap-2">
+                    <img
+                      src="./img/boy.svg"
+                      alt="home"
+                      class="w-[18px] h-[18px]"
+                    />
+                    <a>For patients</a>
+                  </span>
+                </li>
+                <li class="py-3 border-b pl-[51px]">
+                  <span class="flex items-center gap-2">
+                    <img
+                      src="./img/stethoscope.svg"
+                      alt="home"
+                      class="w-[18px] h-[18px]"
+                    />
+                    <a>For doctors</a>
+                  </span>
+                </li>
+              </ul>
+              <button
+                class="relative top-[147px] left-[28px] px-[85px] py-[16px] w-[304px] h-[54px] bg-[#138ED1] text-white"
+              >
+                Download app
+              </button>
+            </div>
+          </div>
+          <div
+            class="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-black/[0.1] cursor-pointer relative -mr-2"
+            onclick="menuToggle()"
+          >
+            <img
+              id="mobile-menu-btn"
+              src="./img/hamburger.svg"
+              alt="hamMenu"
+              class="text-[20px]"
+            />
+          </div>
+        </nav>
+      </header>
+
+      <main class="relative top-[28px] md:top-[0] w-screen">
+        <div
+          class="flex flex-col items-center w-full h-[3138px] md:h-[2850px] bg-[url('./img/mobileBG.png')] md:bg-[url('./img/desktopBG.png')] bg-no-repeat bg-cover"
+        >
+          <!-- ================Form and Hero Banner start================== -->
+          <!-- Mobile version -->
+          <div
+            class="md:hidden flex flex-col items-center relative top-[80px] px-[33px]"
+          >
+            <div>
+              <h5
+                class="text-[#333] text-center text-[1.8rem] font-[600] w-[19rem]"
+              >
+                <span class="text-[#138ED1]">Best in class</span> lab tests!
+              </h5>
+              <img
+                src="img/vector.svg"
+                alt="strips"
+                class="w-[13rem] h-[0.7rem] ml-[-1rem]"
+              />
+            </div>
+            <div
+              class="flex items-center justify-center rounded-[35px] mt-[16px] bg-[#00486C] w-[19rem] h-[3rem] px-[8px] py-[3px]"
+            >
+              <p class="text-white font-[400] text-[20px]">
+                Get Full Body Check up <span>Now</span> at
+              </p>
+            </div>
+            <div
+              class="flex items-center justify-around rounded-[35px] mt-[0.5rem] font-[600] text-white text-[14px] py-[6px] px-[18px] w-[184px] h-[33px] bg-[#00A6FF]"
+            >
+              <p>₹<span class="line-through">5,999</span></p>
+              <p>₹ 999</p>
+              <p>70% OFF</p>
+            </div>
+          </div>
+          <!-- Desktop version -->
+          <div class="flex absolute md:top-[120px] top-[290px]">
+            <div class="flex flex-col w-[45%] md:ml-[123px]">
+              <!-- =====Form start==== -->
+              <div
+                class="flex flex-col w-[19.5rem] md:w-[470px] h-[20rem] md:h-[420px] rounded-[34px] bg-[#FFF] drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]"
+              >
+                <h4
+                  class="text-[0.9rem] md:text-[20px] font-body font-[500] text-center md:mt-[26px] mt-[1.25rem]"
+                >
+                  Fill in the details to get a call!
+                </h4>
+                <span class="flex items-center mt-[20px] gap-[1.31rem]">
+                  <img
+                    src="./img/person-icon.svg"
+                    alt="personIcon"
+                    class="ml-[0.8rem] md:ml-[35px] w-[30px] h-[30px] md:w-[2.875rem] md:h[2.875rem]"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Full name"
+                    class="bg-[#E3E3E3] w-[204px] ml-[-1rem] md:w-[299px] h-[33px] md:h-[47px] rounded-[5px] py-[16px] px-[43px] placeholder:text-[13px] md:placeholder:text-[12px]"
+                  />
+                </span>
+                <span class="flex items-center mt-[25px] gap-[1.44rem]">
+                  <img
+                    src="img/call-icon.svg"
+                    alt="callIcon"
+                    class="ml-[0.8rem] md:ml-[35px] w-[30px] h-[30px] md:w-[46px] md:[1.56rem]"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Phone number"
+                    class="bg-[#E3E3E3] w-[204px] ml-[-1rem] md:w-[299px] h-[33px] md:h-[47px] rounded-[5px] py-[16px] px-[43px] placeholder:text-[13px] md:placeholder:text-[12px]"
+                  />
+                </span>
+                <span class="flex items-center mt-[25px] gap-[1.44rem]">
+                  <img
+                    src="img/distance-icon.svg"
+                    alt="distanceIcon"
+                    class="ml-[0.8rem] md:ml-[35px] w-[30px] h-[30px] md:w-[46px] md:[1.56rem]"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Location"
+                    class="bg-[#E3E3E3] w-[204px] ml-[-1rem] md:w-[299px] h-[33px] md:h-[47px] rounded-[5px] py-[16px] px-[43px] placeholder:text-[13px] md:placeholder:text-[12px]"
+                  />
+                </span>
+                <span class="flex mt-[16px] gap-[16px] items-center">
+                  <input
+                    type="checkbox"
+                    class="border-[#75CFFF] w-[22px] h-[22px] ml-[1.6rem] md:ml-[60px] checked:bg-[#138ED1] peer relative left-0 shrink-0 appearance-none rounded-sm border outline-none after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-['']"
+                  />
+                  <p
+                    class="text-[0.5rem] md:text-[0.6875rem] font-[600] text-[#2F2F2F] w-[200px] md:w-[280px]"
+                  >
+                    By continuing, you agree to our T&C and privacy policy
+                  </p>
+                </span>
+                <button
+                  class="w-[9.75rem] md:w-[236px] h-[1.875rem] md:h-[42px] rounded-[6px] bg-[#138ED1] text-[#FFF] text-[0.875rem] md:text-[20px] font-[500] mt-[0.56rem] md:mt-[16px] ml-[4.5rem] md:ml-[7rem]"
+                >
+                  Proceed
+                </button>
+              </div>
+              <!-- =====Form End==== -->
+              <img
+                src="./img/offer.png"
+                alt="offer"
+                class="hidden md:flex mt-[13px]"
+              />
+            </div>
+            <img
+              src="./img/hero.png"
+              alt="hero"
+              class="hidden md:flex w-[45%] h-[623px]"
+            />
+          </div>
+
+          <!-- =================Cards start================== -->
+          <div
+            class="flex flex-col items-center absolute top-[650px] md:top-[732px] w-full"
+          >
+            <div
+              class="flex flex-col md:flex-row items-center gap-[1rem] md:gap-[47px]"
+            >
+              <div class="flex items-center gap-[20px]">
+                <img
+                  src="./img/icon1.svg"
+                  alt="NABL Accredited Labs"
+                  class="w-[2rem] md:w-[60px] h-[2.125rem] md:h-[66px]"
+                />
+                <p class="text-[1rem] md:text-[24px] font-[500] text-[#333]">
+                  NABL Accredited Labs
+                </p>
+              </div>
+              <div class="flex items-center gap-[20px]">
+                <img
+                  src="img/icon2.svg"
+                  alt="Free sample collection"
+                  class="w-[2rem] md:w-[60px] h-[2.125rem] md:h-[66px]"
+                />
+                <p class="text-[1rem] md:text-[24px] font-[500] text-[#333]">
+                  Free sample collection
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-col items-center mt-[1.62rem] md:mt-[50px]">
+              <h5 class="text-[#333] text-[1.5rem] md:text-[48px] font-[600]">
+                We Keep <span class="text-[#138ED1]">expanding</span>!
+              </h5>
+              <img
+                src="img/vector.svg"
+                alt="strips"
+                class="w-[7.5rem] md:w-[230px] h-[0.8rem] md:h-[19px] ml-[6rem] md:ml-[200px]"
+              />
+
+              <!-- SmallCards -->
+              <div
+                class="grid md:grid-cols-5 grid-cols-2 mt-[1.12rem] md:mt-[130px] gap-[0.63rem] md:gap-[86px]"
+              >
+                <div
+                  key="{item.id}"
+                  class="w-[151px] h-[79px] bg-[#138ED1] rounded-[16px] flex flex-col items-center justify-center"
+                >
+                  <p class="text-white text-[24px] font-[600]">5+</p>
+                  <p class="text-white text-[14px] w-[120px] text-center">
+                    Labs
+                  </p>
+                </div>
+
+                <div
+                  key="{item.id}"
+                  class="w-[151px] h-[79px] bg-[#138ED1] rounded-[16px] flex flex-col items-center justify-center"
+                >
+                  <p class="text-white text-[24px] font-[600]">100+</p>
+                  <p class="text-white text-[14px] w-[120px] text-center">
+                    Collection centers
+                  </p>
+                </div>
+
+                <div
+                  key="{item.id}"
+                  class="w-[151px] h-[79px] bg-[#138ED1] rounded-[16px] flex flex-col items-center justify-center"
+                >
+                  <p class="text-white text-[24px] font-[600]">1000+</p>
+                  <p class="text-white text-[14px] w-[120px] text-center">
+                    Monthly tests
+                  </p>
+                </div>
+
+                <div
+                  key="{item.id}"
+                  class="w-[151px] h-[79px] bg-[#138ED1] rounded-[16px] flex flex-col items-center justify-center"
+                >
+                  <p class="text-white text-[24px] font-[600]">2200</p>
+                  <p class="text-white text-[14px] w-[120px] text-center">
+                    Test menu
+                  </p>
+                </div>
+
+                <div
+                  class="w-[151px] h-[79px] bg-[#138ED1] rounded-[16px] flex flex-col items-center justify-center relative left-[80px] md:left-[0px]"
+                >
+                  <p class="text-white text-[24px] font-[600]">5+</p>
+                  <p class="text-white text-[14px] w-[120px] text-center">
+                    Cities present in
+                  </p>
+                </div>
+              </div>
+              <!-- SmallCards -->
+            </div>
+          </div>
+
+          <!-- =================Carousel start================== -->
+          <div
+            class="flex flex-col items-center absolute top-[1090px] w-full mt-[1rem] md:mt-[120px]"
+          >
+            <div class="flex flex-col items-center justify-center">
+              <h5 class="text-[#333] text-[1.5rem] md:text-[48px] font-[600]">
+                Top <span class="text-[#138ED1]">packages</span>!
+              </h5>
+              <img
+                src="./img/vector.svg"
+                alt="strips"
+                class="w-[7.5rem] md:w-[230px] h-[0.6875rem] md:h-[19px] ml-[3rem] md:ml-[80px]"
+              />
+              <p
+                class="mt-[0.75rem] md:mt-[18px] text-center text-[#6E6E6E] font-[500] text-[0.65rem] md:text-[24px] w-[18rem] md:w-[53rem]"
+              >
+                Explore our wide range of tests! We ensure that you don’t miss
+                out on any chance to keep yourself healthy.
+              </p>
+
+              <!-- Desktop CarouselCard -->
+              <div class="mt-[38px] w-[75rem] hidden md:flex flex-col">
+                <div class="swiper w-[75rem] mt-2">
+                  <div class="swiper-wrapper">
+                    <!-- Card 1 -->
+                    <div
+                      class="swiper-slide w-[19.5rem] font-body md:w-[343px] h-[16rem] md:h-[329px] my-[1rem] bg-[#FFF] drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]"
+                    >
+                      <div
+                        class="flex flex-col pt-[1.49rem] md:pt-[21px] p-[1.12rem] md:pl-[22px]"
+                      >
+                        <h4
+                          class="text-[2F2F2F] text-[1rem] md:text-[26px] font-[600] w-[14.375rem] md:w-[235px]"
+                        >
+                          Basic Full Body Checkup
+                        </h4>
+                        <p class="flex items-center mt-[1.18rem] md:mt-[18px]">
+                          <span
+                            class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600]"
+                          >
+                            4.3
+                          </span>
+                          <img
+                            src="img/star.svg"
+                            alt="star"
+                            class="ml-[0.19rem] md:ml-[3px] mr-[4px]"
+                          />
+                          <span
+                            class="text-[#6E6E6E] text-[0.75rem] md:text-[20px] font-[500]"
+                          >
+                            (75 Reviews)
+                          </span>
+                        </p>
+                        <p
+                          class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600] mt-[0.69rem] md:mt-[9px] mb-[0.38rem] md:mb-[5px]"
+                        >
+                          Number of tests - 53
+                        </p>
+                        <p
+                          class="text-[#6E6E6E] text-[1.125rem] md:text-[18px] font-[500] flex"
+                        >
+                          MRP:
+                          <span
+                            class="line-through text-[#6E6E6E] text-[1.25rem] md:text-[20px] font-[500] ml-[0.25rem] md:ml-[5px]"
+                          >
+                            ₹10,000
+                          </span>
+                          <span
+                            class="text-[#2F2F2F] text-[1.25rem] md:text-[20px] font-[500] ml-[1.31rem] md:ml-[21px]"
+                          >
+                            ₹8,490
+                          </span>
+                        </p>
+                      </div>
+                      <button
+                        class="w-[12.75rem] md:w-[264px] h-[2.57rem] md:h-[43px] rounded-[6px] bg-[#008DD9] mt-[0] md:mt-[4px] ml-[3.38rem] md:ml-[48px] text-[1rem] md:text-[20px] text-[#FFF] font-[500] md:mb-[40px]"
+                      >
+                        Book now
+                      </button>
+                    </div>
+                    <!-- Card 2 -->
+                    <div
+                      class="swiper-slide w-[19.5rem] font-body md:w-[343px] h-[16rem] md:h-[329px] my-[1rem] bg-[#FFF] drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]"
+                    >
+                      <div
+                        class="flex flex-col pt-[1.49rem] md:pt-[21px] p-[1.12rem] md:pl-[22px]"
+                      >
+                        <h4
+                          class="text-[2F2F2F] text-[1rem] md:text-[26px] font-[600] w-[14.375rem] md:w-[235px]"
+                        >
+                          Advance Full Body Checkup
+                        </h4>
+                        <p class="flex items-center mt-[1.18rem] md:mt-[18px]">
+                          <span
+                            class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600]"
+                          >
+                            4.7
+                          </span>
+                          <img
+                            src="img/star.svg"
+                            alt="star"
+                            class="ml-[0.19rem] md:ml-[3px] mr-[4px]"
+                          />
+                          <span
+                            class="text-[#6E6E6E] text-[0.75rem] md:text-[20px] font-[500]"
+                          >
+                            (100 Reviews)
+                          </span>
+                        </p>
+                        <p
+                          class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600] mt-[0.69rem] md:mt-[9px] mb-[0.38rem] md:mb-[5px]"
+                        >
+                          Number of tests - 70
+                        </p>
+                        <p
+                          class="text-[#6E6E6E] text-[1.125rem] md:text-[18px] font-[500] flex"
+                        >
+                          MRP:
+                          <span
+                            class="line-through text-[#6E6E6E] text-[1.25rem] md:text-[20px] font-[500] ml-[0.25rem] md:ml-[5px]"
+                          >
+                            ₹12,000
+                          </span>
+                          <span
+                            class="text-[#2F2F2F] text-[1.25rem] md:text-[20px] font-[500] ml-[1.31rem] md:ml-[21px]"
+                          >
+                            ₹10,000
+                          </span>
+                        </p>
+                      </div>
+                      <button
+                        class="w-[12.75rem] md:w-[264px] h-[2.57rem] md:h-[43px] rounded-[6px] bg-[#008DD9] mt-[0] md:mt-[4px] ml-[3.38rem] md:ml-[28px] text-[1rem] md:text-[20px] text-[#FFF] font-[500] md:mb-[40px]"
+                      >
+                        Book now
+                      </button>
+                    </div>
+                    <!-- Card 3 -->
+                    <div
+                      class="swiper-slide w-[19.5rem] font-body md:w-[343px] h-[16rem] md:h-[329px] my-[1rem] bg-[#FFF] drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]"
+                    >
+                      <div
+                        class="flex flex-col pt-[1.49rem] md:pt-[21px] p-[1.12rem] md:pl-[22px]"
+                      >
+                        <h4
+                          class="text-[2F2F2F] text-[1rem] md:text-[26px] font-[600] w-[14.375rem] md:w-[235px]"
+                        >
+                          Liver Function Test (LFT)
+                        </h4>
+                        <p class="flex items-center mt-[1.18rem] md:mt-[18px]">
+                          <span
+                            class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600]"
+                          >
+                            4.3
+                          </span>
+                          <img
+                            src="img/star.svg"
+                            alt="star"
+                            class="ml-[0.19rem] md:ml-[3px] mr-[4px]"
+                          />
+                          <span
+                            class="text-[#6E6E6E] text-[0.75rem] md:text-[20px] font-[500]"
+                          >
+                            (43 Reviews)
+                          </span>
+                        </p>
+                        <p
+                          class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600] mt-[0.69rem] md:mt-[9px] mb-[0.38rem] md:mb-[5px]"
+                        >
+                          Number of tests - 89
+                        </p>
+                        <p
+                          class="text-[#6E6E6E] text-[1.125rem] md:text-[18px] font-[500] flex"
+                        >
+                          MRP:
+                          <span
+                            class="line-through text-[#6E6E6E] text-[1.25rem] md:text-[20px] font-[500] ml-[0.25rem] md:ml-[5px]"
+                          >
+                            ₹13,299
+                          </span>
+                          <span
+                            class="text-[#2F2F2F] text-[1.25rem] md:text-[20px] font-[500] ml-[1.31rem] md:ml-[21px]"
+                          >
+                            ₹11,299
+                          </span>
+                        </p>
+                      </div>
+                      <button
+                        class="w-[12.75rem] md:w-[264px] h-[2.57rem] md:h-[43px] rounded-[6px] bg-[#008DD9] mt-[0] md:mt-[4px] ml-[3.38rem] md:ml-[28px] text-[1rem] md:text-[20px] text-[#FFF] font-[500] md:mb-[40px]"
+                      >
+                        Book now
+                      </button>
+                    </div>
+                    <!-- Card 4 -->
+                    <div
+                      class="swiper-slide w-[19.5rem] font-body md:w-[343px] h-[16rem] md:h-[329px] my-[1rem] bg-[#FFF] drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]"
+                    >
+                      <div
+                        class="flex flex-col pt-[1.49rem] md:pt-[21px] p-[1.12rem] md:pl-[22px]"
+                      >
+                        <h4
+                          class="text-[2F2F2F] text-[1rem] md:text-[26px] font-[600] w-[14.375rem] md:w-[235px]"
+                        >
+                          Liver Function Test (LFT)
+                        </h4>
+                        <p class="flex items-center mt-[1.18rem] md:mt-[18px]">
+                          <span
+                            class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600]"
+                          >
+                            4.3
+                          </span>
+                          <img
+                            src="img/star.svg"
+                            alt="star"
+                            class="ml-[0.19rem] md:ml-[3px] mr-[4px]"
+                          />
+                          <span
+                            class="text-[#6E6E6E] text-[0.75rem] md:text-[20px] font-[500]"
+                          >
+                            (43 Reviews)
+                          </span>
+                        </p>
+                        <p
+                          class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600] mt-[0.69rem] md:mt-[9px] mb-[0.38rem] md:mb-[5px]"
+                        >
+                          Number of tests - 89
+                        </p>
+                        <p
+                          class="text-[#6E6E6E] text-[1.125rem] md:text-[18px] font-[500] flex"
+                        >
+                          MRP:
+                          <span
+                            class="line-through text-[#6E6E6E] text-[1.25rem] md:text-[20px] font-[500] ml-[0.25rem] md:ml-[5px]"
+                          >
+                            ₹13,299
+                          </span>
+                          <span
+                            class="text-[#2F2F2F] text-[1.25rem] md:text-[20px] font-[500] ml-[1.31rem] md:ml-[21px]"
+                          >
+                            ₹11,299
+                          </span>
+                        </p>
+                      </div>
+                      <button
+                        class="w-[12.75rem] md:w-[264px] h-[2.57rem] md:h-[43px] rounded-[6px] bg-[#008DD9] mt-[0] md:mt-[4px] ml-[3.38rem] md:ml-[28px] text-[1rem] md:text-[20px] text-[#FFF] font-[500] md:mb-[40px]"
+                      >
+                        Book now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="./img/arrow.svg"
+                  alt=""
+                  style="
+                    width: 104px;
+                    height: 104px;
+                    position: relative;
+                    top: -220px;
+                    left: -50px;
+                    z-index: 10;
+                  "
+                  class="swiper-button-prev rotate-180"
+                />
+                <img
+                  src="./img/arrow.svg"
+                  alt=""
+                  style="
+                    width: 104px;
+                    height: 104px;
+                    position: relative;
+                    top: -296px;
+                    left: 1150px;
+                    z-index: 10;
+                  "
+                  class="swiper-button-next"
+                />
+              </div>
+              <!-- Mobile CarouselCard -->
+              <div
+                class="md:hidden flex flex-col mt-[38px] gap-[1rem] md:gap-[69px]"
+              >
+                <!-- Card 1 -->
+                <div
+                  class="w-[19.5rem] font-body md:w-[343px] h-[16rem] md:h-[329px] ml-[40px] mr-[40px] my-[1rem] bg-[#FFF] drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]"
+                >
+                  <div
+                    class="flex flex-col pt-[1.49rem] md:pt-[21px] p-[1.12rem] md:pl-[22px]"
+                  >
+                    <h4
+                      class="text-[2F2F2F] text-[1rem] md:text-[26px] font-[600] w-[14.375rem] md:w-[235px]"
+                    >
+                      Basic Full Body Checkup
+                    </h4>
+                    <p class="flex items-center mt-[1.18rem] md:mt-[18px]">
+                      <span
+                        class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600]"
+                      >
+                        4.3
+                      </span>
+                      <img
+                        src="img/star.svg"
+                        alt="star"
+                        class="ml-[0.19rem] md:ml-[3px] mr-[4px]"
+                      />
+                      <span
+                        class="text-[#6E6E6E] text-[0.75rem] md:text-[20px] font-[500]"
+                      >
+                        (75 Reviews)
+                      </span>
+                    </p>
+                    <p
+                      class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600] mt-[0.69rem] md:mt-[9px] mb-[0.38rem] md:mb-[5px]"
+                    >
+                      Number of tests - 53
+                    </p>
+                    <p
+                      class="text-[#6E6E6E] text-[1.125rem] md:text-[18px] font-[500] flex"
+                    >
+                      MRP:
+                      <span
+                        class="line-through text-[#6E6E6E] text-[1.25rem] md:text-[20px] font-[500] ml-[0.25rem] md:ml-[5px]"
+                      >
+                        ₹10,000
+                      </span>
+                      <span
+                        class="text-[#2F2F2F] text-[1.25rem] md:text-[20px] font-[500] ml-[1.31rem] md:ml-[21px]"
+                      >
+                        ₹8,490
+                      </span>
+                    </p>
+                  </div>
+                  <button
+                    class="w-[12.75rem] md:w-[264px] h-[2.57rem] md:h-[43px] rounded-[6px] bg-[#008DD9] mt-[0] md:mt-[4px] ml-[3.38rem] md:ml-[44px] text-[1rem] md:text-[20px] text-[#FFF] font-[500] md:mb-[40px]"
+                  >
+                    Book now
+                  </button>
+                </div>
+                <!-- Card 2 -->
+                <div
+                  class="w-[19.5rem] font-body md:w-[343px] h-[16rem] md:h-[329px] ml-[40px] mr-[40px] my-[1rem] bg-[#FFF] drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]"
+                >
+                  <div
+                    class="flex flex-col pt-[1.49rem] md:pt-[21px] p-[1.12rem] md:pl-[22px]"
+                  >
+                    <h4
+                      class="text-[2F2F2F] text-[1rem] md:text-[26px] font-[600] w-[14.375rem] md:w-[235px]"
+                    >
+                      Advance Full Body Checkup
+                    </h4>
+                    <p class="flex items-center mt-[1.18rem] md:mt-[18px]">
+                      <span
+                        class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600]"
+                      >
+                        4.7
+                      </span>
+                      <img
+                        src="img/star.svg"
+                        alt="star"
+                        class="ml-[0.19rem] md:ml-[3px] mr-[4px]"
+                      />
+                      <span
+                        class="text-[#6E6E6E] text-[0.75rem] md:text-[20px] font-[500]"
+                      >
+                        (100 Reviews)
+                      </span>
+                    </p>
+                    <p
+                      class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600] mt-[0.69rem] md:mt-[9px] mb-[0.38rem] md:mb-[5px]"
+                    >
+                      Number of tests - 70
+                    </p>
+                    <p
+                      class="text-[#6E6E6E] text-[1.125rem] md:text-[18px] font-[500] flex"
+                    >
+                      MRP:
+                      <span
+                        class="line-through text-[#6E6E6E] text-[1.25rem] md:text-[20px] font-[500] ml-[0.25rem] md:ml-[5px]"
+                      >
+                        ₹12,000
+                      </span>
+                      <span
+                        class="text-[#2F2F2F] text-[1.25rem] md:text-[20px] font-[500] ml-[1.31rem] md:ml-[21px]"
+                      >
+                        ₹10,000
+                      </span>
+                    </p>
+                  </div>
+                  <button
+                    class="w-[12.75rem] md:w-[264px] h-[2.57rem] md:h-[43px] rounded-[6px] bg-[#008DD9] mt-[0] md:mt-[4px] ml-[3.38rem] md:ml-[44px] text-[1rem] md:text-[20px] text-[#FFF] font-[500] md:mb-[40px]"
+                  >
+                    Book now
+                  </button>
+                </div>
+                <!-- Card 3 -->
+                <div
+                  class="w-[19.5rem] font-body md:w-[343px] h-[16rem] md:h-[329px] ml-[40px] mr-[40px] my-[1rem] bg-[#FFF] drop-shadow-[0_4px_10px_rgba(0,0,0,0.25)]"
+                >
+                  <div
+                    class="flex flex-col pt-[1.49rem] md:pt-[21px] p-[1.12rem] md:pl-[22px]"
+                  >
+                    <h4
+                      class="text-[2F2F2F] text-[1rem] md:text-[26px] font-[600] w-[14.375rem] md:w-[235px]"
+                    >
+                      Liver Function Test (LFT)
+                    </h4>
+                    <p class="flex items-center mt-[1.18rem] md:mt-[18px]">
+                      <span
+                        class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600]"
+                      >
+                        4.3
+                      </span>
+                      <img
+                        src="img/star.svg"
+                        alt="star"
+                        class="ml-[0.19rem] md:ml-[3px] mr-[4px]"
+                      />
+                      <span
+                        class="text-[#6E6E6E] text-[0.75rem] md:text-[20px] font-[500]"
+                      >
+                        (43 Reviews)
+                      </span>
+                    </p>
+                    <p
+                      class="text-[#2F2F2F] text-[1rem] md:text-[20px] font-[600] mt-[0.69rem] md:mt-[9px] mb-[0.38rem] md:mb-[5px]"
+                    >
+                      Number of tests - 89
+                    </p>
+                    <p
+                      class="text-[#6E6E6E] text-[1.125rem] md:text-[18px] font-[500] flex"
+                    >
+                      MRP:
+                      <span
+                        class="line-through text-[#6E6E6E] text-[1.25rem] md:text-[20px] font-[500] ml-[0.25rem] md:ml-[5px]"
+                      >
+                        ₹13,299
+                      </span>
+                      <span
+                        class="text-[#2F2F2F] text-[1.25rem] md:text-[20px] font-[500] ml-[1.31rem] md:ml-[21px]"
+                      >
+                        ₹11,299
+                      </span>
+                    </p>
+                  </div>
+                  <button
+                    class="w-[12.75rem] md:w-[264px] h-[2.57rem] md:h-[43px] rounded-[6px] bg-[#008DD9] mt-[0] md:mt-[4px] ml-[3.38rem] md:ml-[44px] text-[1rem] md:text-[20px] text-[#FFF] font-[500] md:mb-[40px]"
+                  >
+                    Book now
+                  </button>
+                </div>
+                <p
+                  class="md:hidden font-body flex text-[1.12rem] font-[500] text-[#00486C] mt-[-0.5rem] ml-[70%]"
+                >
+                  See All
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- =================Expandable Cards start================== -->
+          <div
+            class="flex flex-col items-center absolute top-[137.5rem] md:top-[1850px] w-screen"
+          >
+            <div class="flex flex-col items-center">
+              <h5 class="text-[#333] text-[1.5rem] md:text-[48px] font-[600]">
+                Why <span class="text-[#138ED1]">choose</span> us?
+              </h5>
+              <img
+                src="img/vector.svg"
+                alt="strips"
+                class="w-[5.5rem] md:w-[185px] h-[0.5rem] md:h-[20px] ml-[1rem] md:ml-[20px]"
+              />
+              <p
+                class="mt-[0.87rem] md:mt-[12px] text-center text-[#6E6E6E] font-[500] text-[0.625rem] md:text-[24px] w-[18.625rem] md:w-[43rem]"
+              >
+                We want you and your heart to be healthy so you can live a happy
+                life!
+              </p>
+            </div>
+            <!-- Desktop Expandable Card -->
+            <div
+              class="relative top-[60px] left-[-12.5rem] hidden md:flex gap-[2.37rem] mt-[4rem]"
+            >
+              <div class="flex flex-col gap-[6.75rem]">
+                <!-- Card 1 -->
+                <div
+                  class="w-[23.3125rem] h-[14.125rem] bg-[#FFF] rounded-[2rem] font-body"
+                >
+                  <img
+                    src="./img/icon3.svg"
+                    alt="Icon"
+                    class="w-[7.5rem] h-[7.5rem] rounded-[7.5rem] relative top-[-3.87rem] left-[16.94rem]"
+                  />
+                  <div
+                    class="relative top-[-6.2rem] left-[1.8rem] flex flex-col items-start"
+                  >
+                    <h4
+                      class="text-[#2F2F2F] text-[1.5rem] font-[600] ml-[0.62rem] w-[13rem]"
+                    >
+                      NABL Accredited Labs
+                    </h4>
+                    <p
+                      class="w-[17.38rem] mt-[1rem] ml-[0.62rem] font-body text-[#2F2F2F] text-[1rem] font-[500]"
+                    >
+                      Get accurate and safe results from our NABL-certified lab
+                      partners.
+                    </p>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div
+                  class="w-[23.3125rem] h-[14.125rem] bg-[#FFF] rounded-[2rem] font-body"
+                >
+                  <img
+                    src="./img/icon4.svg"
+                    alt="Icon"
+                    class="w-[7.5rem] h-[7.5rem] rounded-[7.5rem] relative top-[-3.87rem] left-[16.94rem]"
+                  />
+                  <div
+                    class="relative top-[-6.2rem] left-[1.8rem] flex flex-col items-start"
+                  >
+                    <h4
+                      class="text-[#2F2F2F] text-[1.5rem] font-[600] ml-[0.62rem] w-[13rem]"
+                    >
+                      Timely collections
+                    </h4>
+                    <p
+                      class="w-[17.38rem] mt-[1rem] ml-[0.62rem] font-body text-[#2F2F2F] text-[1rem] font-[500]"
+                    >
+                      We collect samples timely to prevent treatment delays and
+                      ensure your continued well-being.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-[6.75rem] mt-[50px]">
+                <!-- Card 3 -->
+                <div
+                  class="w-[23.3125rem] h-[14.125rem] bg-[#FFF] rounded-[2rem] font-body"
+                >
+                  <img
+                    src="./img/icon5.svg"
+                    alt="Icon"
+                    class="w-[7.5rem] h-[7.5rem] rounded-[7.5rem] relative top-[-3.87rem] left-[16.94rem]"
+                  />
+                  <div
+                    class="relative top-[-6.2rem] left-[1.8rem] flex flex-col items-start"
+                  >
+                    <h4
+                      class="text-[#2F2F2F] text-[1.5rem] font-[600] ml-[0.62rem] w-[13rem]"
+                    >
+                      Value experience
+                    </h4>
+                    <p
+                      class="w-[17.38rem] mt-[1rem] ml-[0.62rem] font-body text-[#2F2F2F] text-[1rem] font-[500]"
+                    >
+                      Experience seamless care without the hassle of waiting in
+                      long lines for an appointment. Book with us for a
+                      healthier lifestyle.
+                    </p>
+                  </div>
+                </div>
+                <!-- Card 4 -->
+                <div
+                  class="w-[23.3125rem] h-[14.125rem] bg-[#FFF] rounded-[2rem] font-body"
+                >
+                  <img
+                    src="./img/icon6.svg"
+                    alt="Icon"
+                    class="w-[7.5rem] h-[7.5rem] rounded-[7.5rem] relative top-[-3.87rem] left-[16.94rem]"
+                  />
+                  <div
+                    class="relative top-[-6.2rem] left-[1.8rem] flex flex-col items-start"
+                  >
+                    <h4
+                      class="text-[#2F2F2F] text-[1.5rem] font-[600] ml-[0.62rem] w-[13rem]"
+                    >
+                      Transparency
+                    </h4>
+                    <p
+                      class="w-[17.38rem] mt-[1rem] ml-[0.62rem] font-body text-[#2F2F2F] text-[1rem] font-[500]"
+                    >
+                      Enjoy hassle free medical assistance with our transparent
+                      approach. We prioritize transparency for your smooth
+                      medical journey.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Expandable Card -->
+            <div class="md:hidden flex flex-col gap-[1.2rem] mt-[2.69rem]">
+              <!-- Card 1 -->
+              <div
+                class="w-[19.5rem] bg-[#FFF] rounded-[2.4rem] font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)]"
+                onclick="expand(1)"
+              >
+                <div class="flex items-center px-[0.94rem] py-[1.31rem]">
+                  <img
+                    src="img/mb-icon1.svg"
+                    alt="Icon"
+                    class="w-[2.5rem] h-[2.5rem] rounded-[2.5rem]"
+                  />
+                  <h4
+                    class="flex items-center justify-between text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
+                  >
+                    NABL Accredited Labs
+                    <img src="./img/expand-arrow.svg" alt="arrow" />
+                  </h4>
+                </div>
+                <div id="1" class="hidden px-[3rem] pb-[2rem]">
+                  <p
+                    class="w-[14rem] font-body text-[#2F2F2F] text-[0.75rem] font-[500]"
+                  >
+                    Get accurate and safe results from our NABL-certified lab
+                    partners.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div
+                class="w-[19.5rem] bg-[#FFF] rounded-[2.4rem] font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)]"
+                onclick="expand(2)"
+              >
+                <div class="flex items-center px-[0.94rem] py-[1.31rem]">
+                  <img
+                    src="img/mb-icon2.svg"
+                    alt="Icon"
+                    class="w-[2.5rem] h-[2.5rem] rounded-[2.5rem]"
+                  />
+                  <h4
+                    class="flex items-center justify-between text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
+                  >
+                    Timely collections
+                    <img src="./img/expand-arrow.svg" alt="arrow" />
+                  </h4>
+                </div>
+                <div id="2" class="hidden px-[3rem] pb-[2rem]">
+                  <p
+                    class="w-[14rem] font-body text-[#2F2F2F] text-[0.75rem] font-[500]"
+                  >
+                    We collect samples timely to prevent treatment delays and
+                    ensure your continued well-being.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div
+                class="w-[19.5rem] bg-[#FFF] rounded-[2.4rem] font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)]"
+                onclick="expand(3)"
+              >
+                <div class="flex items-center px-[0.94rem] py-[1.31rem]">
+                  <img
+                    src="img/mb-icon3.svg"
+                    alt="Icon"
+                    class="w-[2.5rem] h-[2.5rem] rounded-[2.5rem]"
+                  />
+                  <h4
+                    class="flex items-center justify-between text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
+                  >
+                    Value experience
+                    <img src="./img/expand-arrow.svg" alt="arrow" />
+                  </h4>
+                </div>
+                <div id="3" class="hidden px-[3rem] pb-[2rem]">
+                  <p
+                    class="w-[14rem] font-body text-[#2F2F2F] text-[0.75rem] font-[500]"
+                  >
+                    Experience seamless care without the hassle of waiting in
+                    long lines for an appointment. Book with us for a
+                    healthier lifestyle.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div
+                class="w-[19.5rem] bg-[#FFF] rounded-[2.4rem] font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)]"
+                onclick="expand(4)"
+              >
+                <div class="flex items-center px-[0.94rem] py-[1.31rem]">
+                  <img
+                    src="img/mb-icon4.svg"
+                    alt="Icon"
+                    class="w-[2.5rem] h-[2.5rem] rounded-[2.5rem]"
+                  />
+                  <h4
+                    class="flex items-center justify-between text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
+                  >
+                    Transparency
+                    <img src="./img/expand-arrow.svg" alt="arrow" />
+                  </h4>
+                </div>
+                <div id="4" class="hidden px-[3rem] pb-[2rem]">
+                  <p
+                    class="w-[14rem] font-body text-[#2F2F2F] text-[0.75rem] font-[500]"
+                  >
+                    Enjoy hassle free medical assistance with our transparent
+                    approach. We prioritize transparency for your smooth
+                    medical journey.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="w-screen">
+        <!-- ==========Footer=========== -->
+        <div
+          class="font-body w-full h-[514px] md:h-[811px] bg-[#1F1F1F] relative bottom-0 pl-[26px] md:pl-[26px] pr-[23px]"
+        >
+          <div class="flex md:flex-row flex-col justify-between items-center">
+            <div class="mt-[22px] md:mt-[81px] flex flex-col">
+              <img
+                src="./img/footer-logo.svg"
+                alt="FooterLogo"
+                class="w-[37px] md:w-[137px] h-[44px] md:h-[137px]"
+              />
+              <p
+                class="text-white w-[312px] md:w-[422px] text-[10px] md:text-[18px] font-[400] mt-[28px] md:mt-[32px]"
+              >
+                Book doctor appointments online and get your ailments treated in
+                no time with our expert medical support systems. Get rid of all
+                your medical problem with our expert panel of doctors who guide
+                you towards a healthier life.
+              </p>
+
+              <div
+                class="text-white w-[420px] h-[88px] rounded-[14px] text-[20px] font-[600] hidden md:flex items-center mt-[71px] bg-[#FFFFFF3F]"
+              >
+                <span class="relative left-[35px]">+91</span>
+                <input
+                  type="text"
+                  class="relative left-[65px] w-[175px] pl-[35px] py-[15px] border-l-[1px] border-[#fff] focus:outline-none bg-[#565656] text-white"
+                />
+                <button
+                  class="bg-[#00A6FF] w-[117px] h-[88px] relative z-20 left-[96px] rounded-e-[15px]"
+                >
+                  <img
+                    src="./img/footer-call-icon.svg"
+                    alt="CallFooter"
+                    class="pl-[38px]"
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="flex justify-evenly md:w-[50%] w-full mt-[25px] md:mt-[182px]"
+            >
+              <div class="flex flex-col">
+                <p class="text-white text-[12px] md:text-[32px] font-[600]">
+                  Services
+                </p>
+                <ul
+                  class="list-none flex flex-col mt-[14px] md:mt-[24px] gap-[32px]"
+                >
+                  <li class="text-white text-[8px] md:text-[15px] font-[400]">
+                    Appointments
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    Lab tests
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    A-Z medicine
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    Doctor support
+                  </li>
+                </ul>
+              </div>
+              <div class="flex flex-col">
+                <p class="text-white text-[12px] md:text-[32px] font-[600]">
+                  Legal
+                </p>
+                <ul
+                  class="list-none flex flex-col mt-[14px] md:mt-[24px] gap-[32px]"
+                >
+                  <li class="text-white text-[8px] md:text-[15px] font-[400]">
+                    General info
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    Privacy policy
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    Terms of services
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    Consultation
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    How it works
+                  </li>
+                </ul>
+              </div>
+              <div class="flex flex-col">
+                <p class="text-white text-[12px] md:text-[32px] font-[600]">
+                  Talk to us
+                </p>
+                <ul
+                  class="list-none flex flex-col mt-[14px] md:mt-[24px] gap-[32px]"
+                >
+                  <li class="text-white text-[8px] md:text-[15px] font-[400]">
+                    support@notinline.com
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    appointment@notinline.com
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    +91 12345 67899
+                  </li>
+                  <li
+                    class="text-white text-[8px] md:text-[15px] mt-[-10px] md:mt-[12px] font-[400]"
+                  >
+                    +91 97642 09752
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <hr class="text-white mt-[38px] md:mt-[32px]" />
+          <div
+            class="flex items-center gap-[19px] absolute bottom-[64px] md:bottom-[121px]"
+          >
+            <img
+              src="./img/copyright.svg"
+              alt="Copyright"
+              class="w-[13px] md:w-[27px] h-[14px] md:h-[30px] ml-[24px]"
+            />
+            <p class="text-white text-[12px] md:text-[20px]">
+              2021-2023 All Rights Reserved
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="./script.js"></script>
+</html>
