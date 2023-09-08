@@ -17,7 +17,7 @@
       <header class="fixed top-0 z-30 w-screen">
         <!-- ==============Navbar=============== -->
         <nav
-          class="w-full h-[60px] md:h-[83px] flex items-center justify-between md:justify-around px-[30px] md:px-[20px] absolute z-10 bg-white"
+          class="w-full h-[60px] md:h-[83px] flex items-center justify-between md:justify-around px-[30px] md:px-[20px] absolute z-30 bg-white"
         >
           <div class="flex md:w-[277px] w-[127px] md:h-[64px] h-[29px]">
             <img
@@ -73,9 +73,12 @@
           </button>
 
           <!-- =========Mobile menu start========== -->
-          <div id="mobile-menu" class="hidden">
+          <div
+            id="mobile-menu"
+            class="md:hidden block absolute z-10 w-full top-[60px] left-[770px] transition-all duration-500"
+          >
             <div
-              class="flex flex-col pt-2 fixed top-[60px] left-0 w-full h-[calc(100vh-60px)] text-[16px] font-[400] bg-white border-t text-black"
+              class="flex flex-col pt-2 w-full h-[calc(100vh-60px)] text-[16px] font-[400] bg-white border-t text-black"
             >
               <ul>
                 <li class="py-3 border-b pl-[51px]">
@@ -109,39 +112,50 @@
                   </span>
                 </li>
                 <li
-                  class="py-3 border-b pl-[51px] pr-[51px] flex justify-between"
+                  class="pt-3 gap-3 border-b pr-[51px] flex flex-col justify-between overflow-hidden"
                   onclick="dropdown()"
                 >
-                  <span class="flex items-center gap-2">
+                  <div class="flex justify-between pl-[51px]">
+                    <span class="flex items-center gap-2">
+                      <img
+                        src="./img/health-feed.svg"
+                        alt="home"
+                        class="w-[18px] h-[18px]"
+                      />
+                      <a>Health feed</a>
+                    </span>
                     <img
-                      src="./img/health-feed.svg"
-                      alt="home"
-                      class="w-[18px] h-[18px]"
+                      id="drop-down-arrow"
+                      src="./img/drop-arrow.svg"
+                      alt="drop down"
+                      class="mr-4 rotate-0 transition-all duration-300"
                     />
-                    <a>Health feed</a>
-                  </span>
-                  <img
-                    id="drop-down-arrow"
-                    src="./img/drop-arrow.svg"
-                    alt="drop down"
-                    class="mr-4"
-                  />
+                  </div>
+                  <div
+                    id="sub-menu"
+                    class="transition-all duration-300 max-h-0"
+                  >
+                    <ul class="w-screen">
+                      <li
+                        class="bg-[#138ED1] text-white py-3 border-b pl-[80px]"
+                      >
+                        <span class="flex items-center gap-2">
+                          <img src="./img/health-conditions.svg" alt="health" />
+                          <a>Health conditions</a>
+                        </span>
+                      </li>
+                      <li
+                        class="bg-[#138ED1] text-white py-3 border-b pl-[80px]"
+                      >
+                        <span class="flex items-center gap-2">
+                          <img src="./img/pill.svg" alt="pill" />
+                          <a>Medicines</a>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
 
-                <ul id="sub-menu" class="hidden">
-                  <li class="bg-[#138ED1] text-white py-3 border-b pl-[80px]">
-                    <span class="flex items-center gap-2">
-                      <img src="./img/health-conditions.svg" alt="health" />
-                      <a>Health conditions</a>
-                    </span>
-                  </li>
-                  <li class="bg-[#138ED1] text-white py-3 border-b pl-[80px]">
-                    <span class="flex items-center gap-2">
-                      <img src="./img/pill.svg" alt="pill" />
-                      <a>Medicines</a>
-                    </span>
-                  </li>
-                </ul>
                 <li class="py-3 border-b pl-[51px]">
                   <span class="flex items-center gap-2">
                     <img
@@ -163,6 +177,7 @@
                   </span>
                 </li>
               </ul>
+
               <button
                 class="relative top-[147px] left-[28px] px-[85px] py-[16px] w-[304px] h-[54px] bg-[#138ED1] text-white"
               >
@@ -170,6 +185,7 @@
               </button>
             </div>
           </div>
+
           <div
             class="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-black/[0.1] cursor-pointer relative -mr-2"
             onclick="menuToggle()"
@@ -178,7 +194,7 @@
               id="mobile-menu-btn"
               src="./img/hamburger.svg"
               alt="hamMenu"
-              class="text-[20px]"
+              class="text-[20px] transition-all duration-300"
             />
           </div>
         </nav>
@@ -991,115 +1007,175 @@
             <div class="md:hidden flex flex-col gap-[1.2rem] mt-[2.69rem]">
               <!-- Card 1 -->
               <div
-                class="w-[19.5rem] bg-[#FFF] rounded-[2.4rem] font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)]"
-                onclick="expand(1)"
+                class="relative w-[19.5rem] overflow-hidden font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)] rounded-[2.4rem]"
               >
-                <div class="flex items-center px-[0.94rem] py-[1.31rem]">
+                <input
+                  type="checkbox"
+                  class="peer absolute top-0 inset-x-0 w-full h-[80px] opacity-0 z-10 cursor-pointer"
+                  onclick="expand(1)"
+                />
+                <div
+                  class="bg-white w-full px-[0.94rem] py-[1.31rem] flex items-center"
+                >
                   <img
                     src="img/mb-icon1.svg"
                     alt="Icon"
                     class="w-[2.5rem] h-[2.5rem] rounded-[2.5rem]"
                   />
-                  <h4
-                    class="flex items-center justify-between text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
+                  <h1
+                    class="text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
                   >
                     NABL Accredited Labs
-                    <img src="./img/expand-arrow.svg" alt="arrow" />
-                  </h4>
+                  </h1>
                 </div>
-                <div id="1" class="hidden px-[3rem] pb-[2rem]">
-                  <p
-                    class="w-[14rem] font-body text-[#2F2F2F] text-[0.75rem] font-[500]"
+                <div
+                  class="absolute top-7 right-9 transition-transform duration-500 rotate-0 peer-checked:rotate-90"
+                >
+                  <img id="1" src="./img/expand-arrow.svg" alt="" />
+                </div>
+
+                <div
+                  class="bg-white overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40"
+                >
+                  <div
+                    class="font-body text-[#2F2F2F] text-[0.75rem] font-[500] px-[3rem] pb-[1.5rem]"
                   >
-                    Get accurate and safe results from our NABL-certified lab
-                    partners.
-                  </p>
+                    <p>
+                      Get accurate and safe results from our NABL-certified lab
+                      partners.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <!-- Card 2 -->
               <div
-                class="w-[19.5rem] bg-[#FFF] rounded-[2.4rem] font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)]"
-                onclick="expand(2)"
+                class="relative w-[19.5rem] overflow-hidden font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)] rounded-[2.4rem]"
               >
-                <div class="flex items-center px-[0.94rem] py-[1.31rem]">
+                <input
+                  type="checkbox"
+                  class="peer absolute top-0 inset-x-0 w-full h-[80px] opacity-0 z-10 cursor-pointer"
+                  onclick="expand(2)"
+                />
+                <div
+                  class="bg-white w-full px-[0.94rem] py-[1.31rem] flex items-center"
+                >
                   <img
                     src="img/mb-icon2.svg"
                     alt="Icon"
                     class="w-[2.5rem] h-[2.5rem] rounded-[2.5rem]"
                   />
-                  <h4
-                    class="flex items-center justify-between text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
+                  <h1
+                    class="text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
                   >
                     Timely collections
-                    <img src="./img/expand-arrow.svg" alt="arrow" />
-                  </h4>
+                  </h1>
                 </div>
-                <div id="2" class="hidden px-[3rem] pb-[2rem]">
-                  <p
-                    class="w-[14rem] font-body text-[#2F2F2F] text-[0.75rem] font-[500]"
+                <div
+                  class="absolute top-7 right-9 transition-transform duration-500 rotate-0 peer-checked:rotate-180"
+                >
+                  <img id="2" src="./img/expand-arrow.svg" alt="" />
+                </div>
+
+                <div
+                  class="bg-white overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40"
+                >
+                  <div
+                    class="font-body text-[#2F2F2F] text-[0.75rem] font-[500] px-[3rem] pb-[1.5rem]"
                   >
-                    We collect samples timely to prevent treatment delays and
-                    ensure your continued well-being.
-                  </p>
+                    <p>
+                      We collect samples timely to prevent treatment delays and
+                      ensure your continued well-being.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <!-- Card 3 -->
               <div
-                class="w-[19.5rem] bg-[#FFF] rounded-[2.4rem] font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)]"
-                onclick="expand(3)"
+                class="relative w-[19.5rem] overflow-hidden font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)] rounded-[2.4rem]"
               >
-                <div class="flex items-center px-[0.94rem] py-[1.31rem]">
+                <input
+                  type="checkbox"
+                  class="peer absolute top-0 inset-x-0 w-full h-[80px] opacity-0 z-10 cursor-pointer"
+                  onclick="expand(3)"
+                />
+                <div
+                  class="bg-white w-full px-[0.94rem] py-[1.31rem] flex items-center"
+                >
                   <img
                     src="img/mb-icon3.svg"
                     alt="Icon"
                     class="w-[2.5rem] h-[2.5rem] rounded-[2.5rem]"
                   />
-                  <h4
-                    class="flex items-center justify-between text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
+                  <h1
+                    class="text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
                   >
                     Value experience
-                    <img src="./img/expand-arrow.svg" alt="arrow" />
-                  </h4>
+                  </h1>
                 </div>
-                <div id="3" class="hidden px-[3rem] pb-[2rem]">
-                  <p
-                    class="w-[14rem] font-body text-[#2F2F2F] text-[0.75rem] font-[500]"
+                <div
+                  class="absolute top-7 right-9 transition-transform duration-500 rotate-0 peer-checked:rotate-180"
+                >
+                  <img id="3" src="./img/expand-arrow.svg" alt="" />
+                </div>
+
+                <div
+                  class="bg-white overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40"
+                >
+                  <div
+                    class="font-body text-[#2F2F2F] text-[0.75rem] font-[500] px-[3rem] pb-[1.5rem]"
                   >
-                    Experience seamless care without the hassle of waiting in
-                    long lines for an appointment. Book with us for a
-                    healthier lifestyle.
-                  </p>
+                    <p>
+                      Experience seamless care without the hassle of waiting in
+                      long lines for an appointment. Book with us for a
+                      healthier lifestyle.
+                    </p>
+                  </div>
                 </div>
               </div>
 
               <!-- Card 4 -->
               <div
-                class="w-[19.5rem] bg-[#FFF] rounded-[2.4rem] font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)]"
-                onclick="expand(4)"
+                class="relative w-[19.5rem] overflow-hidden font-body drop-shadow-[0_4px_5px_rgba(0,0,0,0.25)] rounded-[2.4rem]"
               >
-                <div class="flex items-center px-[0.94rem] py-[1.31rem]">
+                <input
+                  type="checkbox"
+                  class="peer absolute top-0 inset-x-0 w-full h-[80px] opacity-0 z-10 cursor-pointer"
+                  onclick="expand(4)"
+                />
+                <div
+                  class="bg-white w-full px-[0.94rem] py-[1.31rem] flex items-center"
+                >
                   <img
                     src="img/mb-icon4.svg"
                     alt="Icon"
                     class="w-[2.5rem] h-[2.5rem] rounded-[2.5rem]"
                   />
-                  <h4
-                    class="flex items-center justify-between text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
+                  <h1
+                    class="text-[#2F2F2F] text-[0.875rem] font-[600] ml-[0.8rem] w-[13rem]"
                   >
                     Transparency
-                    <img src="./img/expand-arrow.svg" alt="arrow" />
-                  </h4>
+                  </h1>
                 </div>
-                <div id="4" class="hidden px-[3rem] pb-[2rem]">
-                  <p
-                    class="w-[14rem] font-body text-[#2F2F2F] text-[0.75rem] font-[500]"
+                <div
+                  class="absolute top-7 right-9 transition-transform duration-500 rotate-0 peer-checked:rotate-180"
+                >
+                  <img id="4" src="./img/expand-arrow.svg" alt="" />
+                </div>
+
+                <div
+                  class="bg-white overflow-hidden transition-all duration-500 max-h-0 peer-checked:max-h-40"
+                >
+                  <div
+                    class="font-body text-[#2F2F2F] text-[0.75rem] font-[500] px-[3rem] pb-[1.5rem]"
                   >
-                    Enjoy hassle free medical assistance with our transparent
-                    approach. We prioritize transparency for your smooth
-                    medical journey.
-                  </p>
+                    <p>
+                      Enjoy hassle free medical assistance with our transparent
+                      approach. We prioritize transparency for your smooth
+                      medical journey.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
